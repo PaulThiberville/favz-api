@@ -14,7 +14,7 @@ app.get("/favico.ico", (req, res) => {
   res.sendStatus(404);
 });
 
-app.post("/api/", controller.getInfos);
+app.post("/", controller.getInfos);
 
 app.listen(process.env.PORT || PORT, () => {
   console.log(`Server listening on : http://localhost:${PORT}`);
