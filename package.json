@@ -1,0 +1,24 @@
+{
+  "name": "favz-api",
+  "version": "1.0.0",
+  "description": "Web Scrapping API using Pupeteer",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon index"
+  },
+  "author": "paul.thiberville@gmail.com",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.1",
+    "puppeteer": "^14.4.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.16"
+  },
+  "engines": {
+    "node": ">= 16.13.1",
+    "npm": ">= 8.10.0"
+  }
+}
