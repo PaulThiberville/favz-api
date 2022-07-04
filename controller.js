@@ -14,17 +14,23 @@ exports.getInfos = async (req, res) => {
   await page.setViewport({ width: 1, height: 1 });
 
   try {
-    await page.goto(url);
+    await page.goto(URL, { waitUntil: "load", timeout: 0 });
   } catch (error) {
-    return res.status(400).json({ error: error.message });
+    return res.status(404).json(error.message);
   }
 
-  //Get title and description
-  const title = await page.title();
-  const description = await page.$eval(
-    "head > meta[name='description']",
-    (element) => element.content
-  );
+  let title;
+  let description;
+  try {
+    //Get title and description
+    title = await page.title();
+    description = await page.$eval(
+      "head > meta[name='description']",
+      (element) => element.content
+    );
+  } catch (error) {
+    return res.status(500).json(error.message);
+  }
 
   //Get icon url
   let iconUrl = "";
