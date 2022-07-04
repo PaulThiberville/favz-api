@@ -14,7 +14,7 @@ exports.getInfos = async (req, res) => {
   await page.setViewport({ width: 1, height: 1 });
 
   try {
-    await page.goto(URL, { waitUntil: "load", timeout: 0 });
+    await page.goto(url, { waitUntil: "load", timeout: 0 });
   } catch (error) {
     return res.status(404).json(error.message);
   }
